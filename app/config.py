@@ -1,12 +1,12 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-import os
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Get the exact folder where this configuration file is located
 BASE_DIR = Path(__file__).resolve().parent.parent
 class Settings(BaseSettings):
-    # Field definitions
+# Field definitions
+    # database_url: str
+    database_url_neon: str
     database_hostname: str
     database_port: str
     database_password: str
