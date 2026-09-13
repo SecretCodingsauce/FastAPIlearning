@@ -1,6 +1,7 @@
 from pydantic import BaseModel,EmailStr
 from typing import Literal
 from datetime import datetime
+from pydantic import ConfigDict
 
 class PostBase(BaseModel):
     title : str
@@ -13,16 +14,14 @@ class UserOut(BaseModel):
     email: EmailStr
     created_at:datetime
 
-    class Config:
-            orm_mode= True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class Post(PostBase):
     created_at : datetime
     user_id : int
     user: UserOut
-    class Config:
-        orm_mode= True
+    model_config = ConfigDict(from_attributes=True)
 
 class PostOut(Post):
      votes: int
