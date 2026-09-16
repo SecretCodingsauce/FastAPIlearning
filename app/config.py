@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 class Settings(BaseSettings):
 # Field definitions
     database_url: str
+    test_database_url: str
     secret_key: str
     algorithim : str
     access_token_expire_minutes: int
