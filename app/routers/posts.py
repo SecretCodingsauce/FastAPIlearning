@@ -31,6 +31,7 @@ def posts(db: Session = Depends(get_db)):
 
 @router.post("/create", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create(post:schemas.createPost,db: Session = Depends(get_db),current_user:int =Depends(oauth2.get_current_user)):
+         
     newpost=models.Post(user_id=current_user.id,**post.model_dump())
     db.add(newpost)
     db.commit()
